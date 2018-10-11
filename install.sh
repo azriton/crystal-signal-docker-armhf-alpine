@@ -61,7 +61,7 @@ GENERALCONFFILE=${CSPIDIR}/Settings.json
 
 JQUERY=jquery-3.1.1.min.js
 
-SERVERVER=master
+SERVERVER=1.2
 
 while getopts :r: OPT
 do
