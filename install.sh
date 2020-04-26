@@ -30,7 +30,7 @@ if [ $(id -ru) -ne 0 ]; then
     exit 1
 fi
 
-WGET=/usr/bin/wget
+CURL=/usr/bin/curl
 TAR=/bin/tar
 CAT=/bin/cat
 CURL=/usr/bin/curl
@@ -94,7 +94,7 @@ EOF
 
 function install_crystalsignal
 {
-    $WGET -O ${WORKDIR}/crystal-signal.tar.gz "https://github.com/infiniteloop-inc/crystal-signal/archive/${SERVERVER}.tar.gz"
+    $CURL -sSL -o ${WORKDIR}/crystal-signal.tar.gz "https://github.com/infiniteloop-inc/crystal-signal/archive/${SERVERVER}.tar.gz"
 
     $TAR xf ${WORKDIR}/crystal-signal.tar.gz -C $WORKDIR
 
@@ -153,7 +153,7 @@ EOF
     fi
 
     if [ ! -f "${DOCUMENTROOT}/js/${JQUERY}" ]; then
-        $WGET -O ${DOCUMENTROOT}/js/${JQUERY} "https://code.jquery.com/${JQUERY}"
+        $CURL -sSL -o ${DOCUMENTROOT}/js/${JQUERY} "https://code.jquery.com/${JQUERY}"
     fi
 
     # install bootstrap
@@ -162,18 +162,18 @@ EOF
     fi
 
     if [ ! -f "${DOCUMENTROOT}/css/bootstrap-3.3.7.min.css" ]; then
-        $WGET -O ${DOCUMENTROOT}/css/bootstrap-3.3.7.min.css "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap/v3-dev/dist/css/bootstrap.min.css"
+        $CURL -sSL -o ${DOCUMENTROOT}/css/bootstrap-3.3.7.min.css "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap/v3-dev/dist/css/bootstrap.min.css"
     fi
     if [ ! -f "${DOCUMENTROOT}/js/bootstrap-3.3.7.min.js" ]; then
-        $WGET -O ${DOCUMENTROOT}/js/bootstrap-3.3.7.min.js "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap/v3-dev/dist/js/bootstrap.min.js"
+        $CURL -sSL -o ${DOCUMENTROOT}/js/bootstrap-3.3.7.min.js "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap/v3-dev/dist/js/bootstrap.min.js"
     fi
 
     # install bootstrap-slider
     if [ ! -f "${DOCUMENTROOT}/css/bootstrap-slider-9.5.1.min.css" ]; then
-        $WGET -O ${DOCUMENTROOT}/css/bootstrap-slider-9.5.1.min.css "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap-slider/master/dist/css/bootstrap-slider.min.css"
+        $CURL -sSL -o ${DOCUMENTROOT}/css/bootstrap-slider-9.5.1.min.css "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap-slider/master/dist/css/bootstrap-slider.min.css"
     fi
     if [ ! -f "${DOCUMENTROOT}/js/bootstrap-slider-9.5.1.min.js" ]; then
-        $WGET -O ${DOCUMENTROOT}/js/bootstrap-slider-9.5.1.min.js "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap-slider/master/dist/bootstrap-slider.min.js"
+        $CURL -sSL -o ${DOCUMENTROOT}/js/bootstrap-slider-9.5.1.min.js "https://raw.githubusercontent.com/infiniteloop-inc/bootstrap-slider/master/dist/bootstrap-slider.min.js"
     fi
 }
 
